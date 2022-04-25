@@ -21,7 +21,10 @@ let timer = null;
 
 app.use(express.json());
 app.use(cors());
+
+//Bases de datos
 //mongodb+srv://admin:admin@cluster0.nl6lm.mongodb.net/prueba2?retryWrites=true&w=majority
+//mongodb+srv://joseobed:admin@cluster0.njzpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 mongoose.connect("mongodb+srv://joseobed:admin@cluster0.njzpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
   useNewUrlParser: true,
@@ -33,6 +36,7 @@ app.use(express.static(public));
 
 app.get("/", (req, res) => {
   res.sendFile(`${public}/index.html`);
+  res.sendFile(`${public}/Telefono.html`);
 });
 
 app.get("/api/semaphores/stop", (req, res) => {

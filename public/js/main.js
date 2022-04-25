@@ -3,7 +3,7 @@ const red = document.getElementById("red")
 const yellow = document.getElementById("yellow")
 const green = document.getElementById("green")
 const counter = document.getElementById("counter-number")
-const stopbtn = document.getElementById("stopbtn")
+const btn = document.getElementById("phonebtn")
 
 const tm = document.getElementById("tm")
 const tp = document.getElementById("tp")
@@ -71,8 +71,15 @@ function initCounter() {
 
     updateClock()
 }
+
+
 function updateClock() {
     counter.innerHTML = totalTime;
+
+    if(totalTime < 10){
+        counter.innerHTML = "0" + totalTime;
+    }
+
     if(totalTime==0) {
         counter.innerHTML = '00';
         counter.classList.add("disable");
@@ -84,9 +91,8 @@ function updateClock() {
     }
 }
 
-stopbtn.addEventListener("click", function(){
-    console.log("stop")
-    socket.emit('stop')
+btn.addEventListener("click", function(){
+    window.location.href="/telefono.html"
 });
 
 
